@@ -11,6 +11,7 @@ namespace DZ1
     {
         static void Main(string[] args)
         {
+            start:
             Console.WriteLine("1 - Числа фибоначчи\n2 - Сумма чисел\n3 - Имя,Фамилия,Возраст");
             int.TryParse(Console.ReadLine(), out int choice);
             switch (choice)
@@ -30,7 +31,9 @@ namespace DZ1
                             mas = ReadFibonachchiArrayFromFile(file);
                             WriteFibonachchiiToFile(file, mas);
                         }
+                        goto start;
                         break;
+                        
                     }
                 case 2:
                     {
@@ -43,14 +46,15 @@ namespace DZ1
                             WriteSumToFile(file);
                             ReadSumFromFile(file);
                         }
-
+                        goto start;
                         break;
                     }
                 case 3:
                 {
                     FileInfo file = new FileInfo("nastya.txt");
                     ReadFioAgeFromFile(file);
-                    break;
+                    goto start;
+                        break;
                 }
             }
 
